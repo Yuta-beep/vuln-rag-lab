@@ -14,7 +14,7 @@ flowchart TD
     C --> D[fetch_local_web]
     D --> E[query_mock_db]
     E --> F[context_builder]
-    F --> G[answer_llm (Ollama)]
+    F --> G["answer_llm Ollama"]
     G --> H[judge_guard]
 ```
 
