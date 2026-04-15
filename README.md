@@ -18,6 +18,17 @@ flowchart TD
     G --> H[judge_guard]
 ```
 
+### 各ノードの役割
+
+- `user_input`: ユーザー質問と実行設定を受け取る
+- `router`: 質問内容から、文書・Web・DBのどれを参照するかを決める
+- `retrieve_docs`: ローカル文書群を読み込み、参照コンテキストを作る
+- `fetch_local_web`: ローカルWebサーバー上のページ本文を取得する
+- `query_mock_db`: SQLiteから顧客情報を取得する（防御ON時は公開列のみ）
+- `context_builder`: 各ソースの取得結果を1つの入力コンテキストに統合する
+- `answer_llm`: Ollamaに統合コンテキストを渡して回答を生成する
+- `judge_guard`: 出力に機密項目が含まれるかを判定する
+
 ## 簡易RAGの概要
 
 - `retrieve_docs`: ローカル文書（通常/悪性）を取得
